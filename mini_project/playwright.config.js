@@ -1,9 +1,5 @@
 // @ts-check
-import { defineConfig, devices, expect } from '@playwright/test';
-
-expect:{
-  timeout:6000000
-}
+import { defineConfig, devices } from '@playwright/test';
 
 /**
  * Read environment variables from file.
@@ -35,6 +31,11 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    launchOptions:{
+      slowMo: 300,
+    },
+    video: "on",
+    screenshot: "only-on-failure"
   },
 
   /* Configure projects for major browsers */
